@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de estudantes</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Salvatore University</h1>
+        <h2>Ficha para cadastro</h2>
+    </header>
+    <main>
+        <form name="Cadastro" id="Cadastro">
+            <fieldset title="dpessoais">
+                <legend><b>Dados pessoais</b></legend>
+                <div class="dados-pessoais">
+                    <label for="name">Nome:</label>
+                    <input type="text" name="name" id="name" autocomplete="name" required><br>
+
+                    <label for="date">Data de nascimento:</label>
+                    <input type="date" name="date" id="date" required><br>
+
+                    <label for="fone">Telefone:</label>
+                    <input type="tel" name="fone" id="fone" autocomplete="tel" required><br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" autocomplete="email" required><br>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend><b>Curso</b></legend>
+                <label for="serie">Série:</label>
+                <select name="serie" id="serie" required>
+                    <option value="">Selecione um curso</option>
+                    <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+                    <option value="eng_comp">Engenharia de Computação</option>
+                    <option value="cienc_comp">Ciência da Computação</option>
+                    <option value="sistemas_info">Sistemas de Informação</option>
+                    <option value="eng_software">Engenharia de Software</option>
+                    <option value="adm">Administração</option>
+                    <option value="direito">Direito</option>
+                    <option value="enfermagem">Enfermagem</option>
+                    <option value="medicina">Medicina</option>
+                    <option value="arquitetura">Arquitetura e Urbanismo</option>
+                    <option value="contabeis">Ciências Contábeis</option>
+                    <option value="psicologia">Psicologia</option>
+                    <option value="letras">Letras - Inglês</option>
+                    <option value="biomedicina">Biomedicina</option>
+                    <option value="nutricao">Nutrição</option>
+                    <option value="educ_fisica">Educação Física</option>
+                </select><br>
+
+                <label for="observacoes">Observações:</label>
+                <textarea name="textarea" id="observacoes" rows="10" cols="50" required></textarea>
+            </fieldset>
+            <button type="button" onclick="salvarDados()">Salvar</button>
+            <button type="reset">Limpar</button>
+        </form>
+    </main>
+
+    <script>
+        function salvarDados() {
+            let campos = document.querySelectorAll("input[type='text'], input[type='date'], input[type='tel'], input[type='email'], select, textarea");
+            let camposVazios = Array.from(campos).filter(campo => campo.value.trim() === "");
+            if (camposVazios.length > 0) {
+                alert("Por favor, preencha todos os campos obrigatórios antes de salvar.");
+                return false;
+            }
+
+            alert("Dados salvos com sucesso!");
+        }
+    </script>
+</body>
+
+</html>
